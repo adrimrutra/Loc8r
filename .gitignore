@@ -1,6 +1,3 @@
-# Build and Release Folders
-bin/
-bin-debug/
 # Logs
 logs
 *.log
