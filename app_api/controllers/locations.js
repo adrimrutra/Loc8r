@@ -37,7 +37,7 @@ module.exports.locationsListByDistance = function (req, res) {
         maxDistance: theEarth.getRadsFromDistance(maxDistance),
         num: 10
     };
-    if (!lng || !lat || !maxDistance) {
+    if ((!lng && lng !== 0) || (!lat && lat !== 0) || !maxDistance) {
         console.log('locationsListByDistance missing params');
         sendJSONresponse(res, 404, {
             "message": "lng, lat and maxDistance query parameters are all required"
@@ -107,8 +107,8 @@ module.exports.locationsCreate = function (req, res) {
     console.log(req.body);
     Loc.create({
         name: req.body.name,
-       /* address: req.body.address,
-        facilities: req.body.facilities,
+        address: req.body.address,
+        facilities: req.body.facilities.split(","),
         coords: [parseFloat(req.body.lng), parseFloat(req.body.lat)],
         openingTimes: [{
             days: req.body.days1,
@@ -120,7 +120,7 @@ module.exports.locationsCreate = function (req, res) {
             opening: req.body.opening2,
             closing: req.body.closing2,
             closed: req.body.closed2,
-        }]*/
+        }]
     }, function (err, location) {
         if (err) {
             console.log(err);

@@ -1,18 +1,10 @@
 ﻿var mongoose = require('mongoose');
 
 var reviewSchema = new mongoose.Schema({
-    author: String,
-    rating: {
-        type: Number,
-        required: true,
-        min: 0,
-        max: 5
-    },
-    reviewText: String,
-    createdOn: {
-        type: Date,
-        "default": Date.now
-    }
+    author: { type: String},//, required: true 
+    rating: {type: Number, required: true, min: 0, max: 5 },
+    reviewText: { type: String},//, required: true 
+    createdOn: {type: Date, "default": Date.now}
 });
 
 var openingTimeSchema = new mongoose.Schema({
@@ -34,6 +26,12 @@ var locationSchema = new mongoose.Schema({
         required: true
     },
     address: String,
+    rating: {
+        type: Number,
+        "default": 0,
+        min: 0,
+        max: 5
+    },
     facilities: [String],
     // Always store coordinates longitude, latitude order.
     coords: {
