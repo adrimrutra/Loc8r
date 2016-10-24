@@ -6,8 +6,8 @@
     loc8rData.$inject = ['$http'];
     function loc8rData($http) {
         var locationByCoords = function (lat, lng) {
-            //return $http.get('/api/locations?lng=' + lng + '&lat=' + lat + '&maxDistance=20');
-            return $http.get('/api/locations?lng=24.029716999999998&lat=49.7807594&maxDistance=20');
+            return $http.get('/api/locations?lng=' + lng + '&lat=' + lat + '&maxDistance=20');
+           // return $http.get('/api/locations?lng=24.029716999999998&lat=49.7807594&maxDistance=20');
         };
 
         var locationById = function (locationid) {
