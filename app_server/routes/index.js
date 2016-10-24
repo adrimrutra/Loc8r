@@ -3,6 +3,8 @@ var router = express.Router();
 var ctrlLocations = require('../controllers/locations');
 var ctrlOthers = require('../controllers/others');
 
+router.get('/', ctrlOthers.angularApp);
+
 /* Locations pages */
 router.get('/', ctrlLocations.homelist);
 router.get('/location/:locationid', ctrlLocations.locationInfo);
